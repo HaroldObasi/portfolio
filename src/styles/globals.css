@@ -11,3 +11,7 @@ body {
   background-color: #0f172a;
   font-family: "Poppins", sans-serif;
 }
+a {
+  color: inherit; /* Use the same color as its parent element */
+  text-decoration: none; /* Remove underline */
+}
