@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import NavLinks from "./NavLinks";
 
 const Header = () => {
   return (
@@ -11,7 +12,7 @@ const Header = () => {
       sx={{
         flexGrow: 1,
       }}
-      py={10}
+      py={3}
     >
       <AppBar
         position="static"
@@ -22,22 +23,15 @@ const Header = () => {
         }}
       >
         <Toolbar>
-          <Typography component="span" variant="h2">
-            🧟
-          </Typography>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+          <Typography
+            component="div"
+            variant="h5"
+            color="grey.500"
+            sx={{ flexGrow: 1, display: { sm: "block" }, fontWeight: 900 }}
           >
-            🧟
-          </IconButton> */}
-
-          <Box></Box>
-
-          <Button color="inherit">Login</Button>
+            Harold :)
+          </Typography>
+          <NavLinks />
         </Toolbar>
       </AppBar>
     </Box>
