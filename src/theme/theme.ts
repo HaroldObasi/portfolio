@@ -1,5 +1,3 @@
-import { Palette, PaletteOptions } from "@mui/material";
-// import type {} from "@mui/lab/themeAugmentation";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -7,6 +5,11 @@ const theme = createTheme({
     primary: {
       dark: "#0C1222",
       main: "#0f172a",
+    },
+    grey: {
+      300: "#FFF",
+      400: "#F9F9FA",
+      500: "#dddde3",
     },
   },
   typography: {
