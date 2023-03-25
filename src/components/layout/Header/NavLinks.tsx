@@ -7,7 +7,16 @@ import { navLinks } from "./nav-links";
 
 const NavLinks: React.FC = () => {
   return (
-    <Stack direction="row" spacing={5}>
+    <Stack
+      direction="row"
+      spacing={5}
+      sx={{
+        display: {
+          xs: "none",
+          md: "flex",
+        },
+      }}
+    >
       {navLinks.map((item) => (
         <Link href={item.url}>
           <Typography

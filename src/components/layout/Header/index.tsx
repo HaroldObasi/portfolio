@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import NavLinks from "./NavLinks";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import SideMenu from "./SideMenu";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box
       sx={{
         flexGrow: 1,
       }}
       py={3}
+      mx={{
+        sm: 0,
+        md: 10,
+      }}
     >
+      <SideMenu open={open} handleClose={handleClose} />
       <AppBar
         position="static"
         sx={{
@@ -32,6 +44,22 @@ const Header = () => {
             Harold :)
           </Typography>
           <NavLinks />
+          <IconButton
+            onClick={handleOpen}
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{
+              mr: 2,
+              display: {
+                sm: "block",
+                md: "none",
+              },
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
