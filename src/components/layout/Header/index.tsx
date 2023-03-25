@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
@@ -19,11 +18,7 @@ const Header = () => {
       sx={{
         flexGrow: 1,
       }}
-      py={3}
-      mx={{
-        sm: 0,
-        md: 10,
-      }}
+      py={1}
     >
       <SideMenu open={open} handleClose={handleClose} />
       <AppBar
@@ -32,14 +27,25 @@ const Header = () => {
           backgroundColor: (theme) => theme.palette.primary.main,
           boxShadow: "none",
           backdropFilter: "blur(5px)",
+          padding: { xs: "10px", md: 0 },
         }}
       >
-        <Toolbar>
+        <Toolbar
+          disableGutters={true}
+          sx={{
+            padding: 0,
+            margin: 0,
+          }}
+        >
           <Typography
             component="div"
             variant="h5"
             color="grey.500"
-            sx={{ flexGrow: 1, display: { sm: "block" }, fontWeight: 900 }}
+            sx={{
+              flexGrow: 1,
+              display: { sm: "block" },
+              fontWeight: 900,
+            }}
           >
             Harold :)
           </Typography>
