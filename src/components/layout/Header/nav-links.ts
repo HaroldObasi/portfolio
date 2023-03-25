@@ -6,7 +6,7 @@ type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { url: "/apps", name: "Apps" },
+  { url: "/projects", name: "Projects" },
   { url: "/contact", name: "Contact" },
   { url: "/resume", name: "Resume" },
 ];
