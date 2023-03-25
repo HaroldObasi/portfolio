@@ -1,7 +1,10 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
+import { navLinks } from "./nav-links";
 
 interface SideMenuProps {
   open: boolean;
@@ -27,13 +30,40 @@ const SideMenu = ({ open, handleClose }: SideMenuProps) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Text in a modal
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "300px",
+          height: "100%",
+          backgroundColor: (theme) => theme.palette.primary.light,
+          padding: "16px",
+          transition: "right 0.3s ease",
+        }}
+      >
+        <Stack direction={"column"}>
+          {navLinks.map((item) => (
+            <Link href={item.url}>
+              <Typography
+                component="h5"
+                variant="body1"
+                width="100%"
+                color="grey.500"
+                m={0}
+                p={2}
+                sx={{
+                  "&:hover": {
+                    color: (theme) => theme.palette.grey[400],
+                    backgroundColor: (theme) => theme.palette.primary.dark,
+                  },
+                }}
+              >
+                {item.name}
+              </Typography>
+            </Link>
+          ))}
+        </Stack>
       </Box>
     </Modal>
   );
