@@ -10,10 +10,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <Box
         maxWidth={"lg"}
-        marginX={"auto"}
+        // marginX={"auto"}
         mx={{
           sm: 0,
           md: 10,
+          lg: "auto",
         }}
       >
         <Header />
