@@ -3,12 +3,13 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { deepPurple } from "@mui/material/colors";
+import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const MainHome = () => {
   return (
-    <Box>
+    <Box marginBottom={20}>
       <Stack
         direction="column"
         justifyContent="center"
@@ -26,15 +27,42 @@ const MainHome = () => {
           <PersonIcon fontSize="large" />
         </Avatar>
         <Typography
-          variant="h3"
-          component="div"
           color="text.primary"
           fontWeight="600"
           paddingTop={2}
-          // fontSize=""
+          sx={{
+            fontSize: "50px",
+          }}
         >
           Harold Obasi
         </Typography>
+        <Typography
+          color="grey.500"
+          fontWeight="600"
+          sx={{
+            fontSize: "20px",
+          }}
+        >
+          AWS Certified, JS/TS, Python, Java
+        </Typography>
+
+        <Box paddingTop={2}>
+          <Button
+            variant="contained"
+            color="neutral"
+            size="large"
+            startIcon={<GitHubIcon />}
+            href="https://github.com/HaroldObasi"
+          >
+            <Typography
+              color="grey.500"
+              fontWeight="200"
+              textTransform={"capitalize"}
+            >
+              Github
+            </Typography>
+          </Button>
+        </Box>
       </Stack>
     </Box>
   );
