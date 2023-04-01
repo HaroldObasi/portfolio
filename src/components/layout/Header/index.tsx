@@ -7,6 +7,7 @@ import NavLinks from "./NavLinks";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import SideMenu from "./SideMenu";
+import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -47,7 +48,7 @@ const Header = () => {
               fontWeight: 900,
             }}
           >
-            Harold :)
+            <Link href="/">Harold :)</Link>
           </Typography>
 
           <NavLinks />
