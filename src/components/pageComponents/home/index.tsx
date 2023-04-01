@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ButtonStack from "./ButtonStack";
+import InfoCard from "./InfoCard";
 
 const MainHome = () => {
   return (
@@ -16,53 +18,8 @@ const MainHome = () => {
         alignItems="center"
         spacing={1}
       >
-        <Avatar
-          sizes="lg"
-          sx={{
-            width: "120px",
-            height: "120px",
-            backgroundColor: (theme) => theme.palette.grey[800],
-          }}
-        >
-          <PersonIcon fontSize="large" />
-        </Avatar>
-        <Typography
-          color="text.primary"
-          fontWeight="600"
-          paddingTop={2}
-          sx={{
-            fontSize: "50px",
-          }}
-        >
-          Harold Obasi
-        </Typography>
-        <Typography
-          color="grey.500"
-          fontWeight="600"
-          sx={{
-            fontSize: "20px",
-          }}
-        >
-          AWS Certified, JS/TS, Python, Java
-        </Typography>
-
-        <Box paddingTop={2}>
-          <Button
-            variant="contained"
-            color="neutral"
-            size="large"
-            startIcon={<GitHubIcon />}
-            href="https://github.com/HaroldObasi"
-          >
-            <Typography
-              color="grey.500"
-              fontWeight="200"
-              textTransform={"capitalize"}
-            >
-              Github
-            </Typography>
-          </Button>
-        </Box>
+        <InfoCard />
+        <ButtonStack />
       </Stack>
     </Box>
   );
