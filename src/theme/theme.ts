@@ -3,16 +3,19 @@ import { createTheme } from "@mui/material/styles";
 declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
     neutral: true;
+    lightBlue: true;
   }
 }
 
 declare module "@mui/material/styles" {
   interface Palette {
     neutral: Palette["primary"];
+    lightBlue: Palette["primary"];
   }
 
   interface PaletteOptions {
     neutral: PaletteOptions["primary"];
+    lightBlue: PaletteOptions["primary"];
   }
 }
 
@@ -27,6 +30,10 @@ const theme = createTheme({
       main: "#4B5563",
       contrastText: "#fff",
     },
+    lightBlue: {
+      main: "#1C2C50",
+    },
+
     grey: {
       300: "#FFF",
       400: "#F9F9FA",
