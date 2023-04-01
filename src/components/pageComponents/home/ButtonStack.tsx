@@ -1,6 +1,6 @@
 import React from "react";
-import Stack from "@mui/material/Stack/Stack";
-import Button from "@mui/material/Button/Button";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Typography from "@mui/material/Typography";
 
