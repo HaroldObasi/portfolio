@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
         maxWidth={"lg"}
         // marginX={"auto"}
         mx={{
-          sm: 0,
+          xs: 1,
           md: 10,
           lg: "auto",
         }}
