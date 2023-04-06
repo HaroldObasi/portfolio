@@ -20,7 +20,8 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
   return (
     <CardActionArea>
       <Box
-        p={2}
+        px={2}
+        py={3}
         sx={{
           backgroundColor: (theme) => theme.palette.primary.dark,
           border: 0.5,
@@ -42,7 +43,7 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
           {projectItem.name}
         </Typography>
         <Typography
-          variant="subtitle1"
+          variant="body1"
           color="grey.400"
           component="div"
           fontWeight="200"
