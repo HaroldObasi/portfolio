@@ -1,13 +1,18 @@
 import React from "react";
 import { client } from "@/sanity-config";
-import {
-  ProjectItem,
-  Projects,
-} from "@/components/pageComponents/projects/types";
+import Head from "next/head";
+import { Projects } from "@/components/pageComponents/projects/types";
 import ProjectMain from "@/components/pageComponents/projects";
 
 const index = ({ projects }: Projects) => {
-  return <ProjectMain projects={projects} />;
+  return (
+    <>
+      <Head>
+        <title>Harold's Projects</title>
+      </Head>
+      <ProjectMain projects={projects} />;
+    </>
+  );
 };
 
 export async function getServerSideProps() {
