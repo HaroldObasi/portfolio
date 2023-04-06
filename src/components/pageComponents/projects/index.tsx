@@ -1,14 +1,16 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import ProjectCard from "./ProjectCard";
 import { Projects, ProjectItem } from "./types";
 
 const ProjectMain = ({ projects }: Projects) => (
-  <div>
+  <Grid>
     {projects.map((item: ProjectItem) => (
-      <ProjectCard projectItem={item} />
+      <Grid item md={6}>
+        <ProjectCard projectItem={item} />
+      </Grid>
     ))}
-  </div>
+  </Grid>
 );
 
 export default ProjectMain;

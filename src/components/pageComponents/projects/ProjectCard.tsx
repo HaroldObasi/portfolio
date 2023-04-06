@@ -29,8 +29,22 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
         image={urlFor(projectItem.thumbnail).width(200).url()}
         alt="Project thumbnail"
       />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto", padding: 0, margin: 3 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        {/* <CardContent sx={{ flex: "1 0 auto" }}> */}
+        <CardContent
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            // backgroundColor: "grey",
+          }}
+        >
           <Typography
             component="div"
             variant="h5"
@@ -47,8 +61,21 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
           >
             {projectItem.shortDescription}
           </Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            {projectItem.techStack.map((item: String) => {
+              return (
+                <Chip
+                  sx={{ marginRight: 2, marginTop: 1 }}
+                  size="small"
+                  label={item}
+                  color="secondary"
+                  variant="outlined"
+                />
+              );
+            })}
+          </Box>
         </CardContent>
-        <Box sx={{ display: "flex", alignItems: "center", marginLeft: 3 }}>
+        {/* <Box sx={{ display: "flex", alignItems: "center", marginLeft: 3 }}>
           {projectItem.techStack.map((item: String) => {
             return (
               <Chip
@@ -59,7 +86,7 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
               />
             );
           })}
-        </Box>
+        </Box> */}
       </Box>
     </Card>
   );
