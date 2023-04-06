@@ -1,94 +1,78 @@
 import React from "react";
 import { ProjectItem } from "./types";
-import Image from "next/image";
 import { urlFor } from "@/sanity-config";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, Theme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles((theme: Theme) => ({
+  chip: {
+    backgroundColor: theme.palette.primary.light,
+  },
+}));
 
 const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
   const theme = useTheme();
-  console.log("project item: ", projectItem);
-
+  const classes = useStyles();
   return (
-    <Card
-      sx={{
-        display: "flex",
-        backgroundColor: (theme) => theme.palette.primary.dark,
-        border: 0.5,
-        borderColor: (theme) => theme.palette.primary.light,
-      }}
-    >
-      <CardMedia
-        component="img"
-        sx={{ width: 100, margin: 3 }}
-        image={urlFor(projectItem.thumbnail).width(200).url()}
-        alt="Project thumbnail"
-      />
+    <CardActionArea>
       <Box
+        p={2}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          backgroundColor: (theme) => theme.palette.primary.dark,
+          border: 0.5,
+          borderColor: (theme) => theme.palette.primary.light,
+          transition: "box-shadow 1s ease-in-out",
+          "&:hover": {
+            // boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.3)",
+            boxShadow:
+              "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+          },
         }}
       >
-        {/* <CardContent sx={{ flex: "1 0 auto" }}> */}
-        <CardContent
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "column",
-            // backgroundColor: "grey",
-          }}
+        <Typography
+          component="div"
+          variant="h5"
+          color="grey.400"
+          fontWeight="600"
         >
-          <Typography
-            component="div"
-            variant="h5"
-            color="grey.400"
-            fontWeight="600"
-          >
-            {projectItem.name}
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            color="grey.400"
-            component="div"
-            fontWeight="200"
-          >
-            {projectItem.shortDescription}
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            {projectItem.techStack.map((item: String) => {
-              return (
-                <Chip
-                  sx={{ marginRight: 2, marginTop: 1 }}
-                  size="small"
-                  label={item}
-                  color="secondary"
-                  variant="outlined"
-                />
-              );
-            })}
-          </Box>
-        </CardContent>
-        {/* <Box sx={{ display: "flex", alignItems: "center", marginLeft: 3 }}>
+          {projectItem.name}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          color="grey.400"
+          component="div"
+          fontWeight="200"
+        >
+          {projectItem.shortDescription}
+        </Typography>
+        <Box>
           {projectItem.techStack.map((item: String) => {
             return (
               <Chip
-                sx={{ marginRight: 2 }}
+                sx={{
+                  marginRight: 1,
+                  marginTop: 1,
+                  "& .MuiChip-label": {
+                    color: "white",
+                    fontWeight: 200,
+                    fontSize: 10,
+                  },
+                }}
+                className={classes.chip}
+                size="small"
                 label={item}
-                color="secondary"
-                variant="outlined"
+                color="primary"
+                variant="filled"
               />
             );
           })}
-        </Box> */}
+        </Box>
       </Box>
-    </Card>
+    </CardActionArea>
   );
 };
 
