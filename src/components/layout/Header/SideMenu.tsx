@@ -50,11 +50,13 @@ const SideMenu = ({ open, handleClose }: SideMenuProps) => {
                 variant="body1"
                 width="100%"
                 color="grey.500"
-                align="center"
                 onClick={handleClose}
                 m={0}
                 p={2}
                 sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   transition: "all 0.2s ease-in-out",
                   borderRadius: 2,
                   "&:hover": {
@@ -63,6 +65,7 @@ const SideMenu = ({ open, handleClose }: SideMenuProps) => {
                   },
                 }}
               >
+                <item.linkIcon sx={{ marginRight: 1 }} fontSize="small" />
                 {item.name}
               </Typography>
             </Link>
