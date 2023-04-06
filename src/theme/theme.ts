@@ -7,6 +7,12 @@ declare module "@mui/material/Button" {
   }
 }
 
+declare module "@mui/material/Chip" {
+  interface ChipPropsColorOverrides {
+    lightBlue: true;
+  }
+}
+
 declare module "@mui/material/styles" {
   interface Palette {
     neutral: Palette["primary"];
