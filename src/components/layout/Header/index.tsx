@@ -28,7 +28,7 @@ const Header = () => {
           backgroundColor: (theme) => theme.palette.primary.main,
           boxShadow: "none",
           backdropFilter: "blur(5px)",
-          padding: { xs: "10px", md: 0 },
+          padding: { xs: 1, md: 0 },
         }}
       >
         <Toolbar

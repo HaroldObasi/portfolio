@@ -2,6 +2,7 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import StickyNote2Icon from "@mui/icons-material/StickyNote2";
 import Typography from "@mui/material/Typography";
 
 const ButtonStack = () => {
@@ -36,6 +37,7 @@ const ButtonStack = () => {
         onClick={handleOpenPDF}
         color="lightBlue"
         size="large"
+        startIcon={<StickyNote2Icon color="info" />}
         sx={{
           "&:hover": { backgroundColor: "primary.dark" },
         }}

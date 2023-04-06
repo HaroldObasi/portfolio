@@ -25,6 +25,7 @@ const NavLinks: React.FC = () => {
             width="100%"
             color="grey.500"
             sx={{
+              transition: "color 0.2s ease-in-out",
               "&:hover": {
                 color: (theme) => theme.palette.grey[400],
               },
