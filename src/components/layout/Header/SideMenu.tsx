@@ -50,9 +50,13 @@ const SideMenu = ({ open, handleClose }: SideMenuProps) => {
                 variant="body1"
                 width="100%"
                 color="grey.500"
+                align="center"
+                onClick={handleClose}
                 m={0}
                 p={2}
                 sx={{
+                  transition: "all 0.2s ease-in-out",
+                  borderRadius: 2,
                   "&:hover": {
                     color: (theme) => theme.palette.grey[400],
                     backgroundColor: (theme) => theme.palette.primary.dark,
