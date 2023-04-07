@@ -1,8 +1,8 @@
 export interface ProjectItem {
-  name: String;
-  shortDescription: String;
+  name: string;
+  shortDescription: string;
   thumbnail: any;
-  techStack: String[];
+  techStack: string[];
   images: any[];
 }
 
