@@ -3,23 +3,36 @@ import { client } from "@/sanity-config";
 import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
 import { ProjectItem } from "@/components/pageComponents/projects/types";
+import ImagesArray from "@/components/pageComponents/projects/projectInfo/ImagesArray";
+import InfoCard from "@/components/pageComponents/projects/projectInfo/InfoCard";
 import Head from "next/head";
 
 const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
   const router = useRouter();
   const { id } = router.query;
-  return <div>Project: {id}</div>;
+  console.log("state: ", projectInfo);
+  return (
+    <>
+      <Head>
+        <title>Harold's projects</title>
+      </Head>
+      <InfoCard
+        name={projectInfo.name}
+        shortDescription={projectInfo.shortDescription}
+        techStack={projectInfo.techStack}
+      />
+      <ImagesArray images={projectInfo.images} />
+    </>
+  );
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.query;
-  console.log(id);
   const projectInfo = await client.fetch(
     `*[_type == "project" && name == "${id}"]`
   );
-  console.log(projectInfo);
   return {
-    props: { projectInfo },
+    props: { projectInfo: projectInfo[0] },
   };
 }
 
