@@ -6,6 +6,7 @@ import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import CustomChip from "./CustomChip";
 
 const useStyles = makeStyles((theme: Theme) => ({
   chip: {
@@ -49,25 +50,8 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
           {projectItem.shortDescription}
         </Typography>
         <Box>
-          {projectItem.techStack.map((item: String) => {
-            return (
-              <Chip
-                sx={{
-                  marginRight: 1,
-                  marginTop: 1,
-                  "& .MuiChip-label": {
-                    color: "white",
-                    fontWeight: 200,
-                    fontSize: 10,
-                  },
-                }}
-                className={classes.chip}
-                size="small"
-                label={item}
-                color="primary"
-                variant="filled"
-              />
-            );
+          {projectItem.techStack.map((item: string) => {
+            return <CustomChip name={item} />;
           })}
         </Box>
       </Box>

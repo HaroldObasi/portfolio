@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
-import { ProjectItem } from "../types";
+import { Typography, Box, Stack } from "@mui/material";
+import CustomChip from "../CustomChip";
 
 interface InfoCardProps {
   name: string;
@@ -8,7 +8,7 @@ interface InfoCardProps {
   techStack: any[];
 }
 
-const InfoCard = ({ name, shortDescription }: InfoCardProps) => {
+const InfoCard = ({ name, shortDescription, techStack }: InfoCardProps) => {
   return (
     <Box>
       <Typography
@@ -32,6 +32,11 @@ const InfoCard = ({ name, shortDescription }: InfoCardProps) => {
       >
         {shortDescription}
       </Typography>
+      <Stack direction="row" justifyContent="center">
+        {techStack.map((item: string) => {
+          return <CustomChip name={item} />;
+        })}
+      </Stack>
     </Box>
   );
 };
