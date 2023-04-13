@@ -29,7 +29,6 @@ const CustomChip = ({ name }: ChipProps) => {
       className={classes.chip}
       size="small"
       label={name}
-      color="primary"
       variant="filled"
     />
   );
