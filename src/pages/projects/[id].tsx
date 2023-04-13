@@ -10,7 +10,6 @@ import Head from "next/head";
 const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log("state: ", projectInfo);
   return (
     <>
       <Head>
@@ -21,7 +20,7 @@ const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
         shortDescription={projectInfo.shortDescription}
         techStack={projectInfo.techStack}
       />
-      <ImagesArray images={projectInfo.images} />
+      {projectInfo.images && <ImagesArray images={projectInfo.images} />}
     </>
   );
 };
