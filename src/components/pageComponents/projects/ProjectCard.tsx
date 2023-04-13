@@ -1,12 +1,12 @@
 import React from "react";
 import { ProjectItem } from "./types";
-import { urlFor } from "@/sanity-config";
 import { useTheme, Theme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import CustomChip from "./CustomChip";
 
 const useStyles = makeStyles((theme: Theme) => ({
   chip: {
@@ -18,7 +18,7 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
   const theme = useTheme();
   const classes = useStyles();
   return (
-    <CardActionArea>
+    <CardActionArea href={`projects/${projectItem.name}`}>
       <Box
         px={2}
         py={3}
@@ -28,7 +28,6 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
           borderColor: (theme) => theme.palette.primary.light,
           transition: "box-shadow 1s ease-in-out",
           "&:hover": {
-            // boxShadow: "0 0 10px 5px rgba(255, 0, 0, 0.3)",
             boxShadow:
               "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
           },
@@ -51,25 +50,8 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
           {projectItem.shortDescription}
         </Typography>
         <Box>
-          {projectItem.techStack.map((item: String) => {
-            return (
-              <Chip
-                sx={{
-                  marginRight: 1,
-                  marginTop: 1,
-                  "& .MuiChip-label": {
-                    color: "white",
-                    fontWeight: 200,
-                    fontSize: 10,
-                  },
-                }}
-                className={classes.chip}
-                size="small"
-                label={item}
-                color="primary"
-                variant="filled"
-              />
-            );
+          {projectItem.techStack.map((item: string) => {
+            return <CustomChip name={item} />;
           })}
         </Box>
       </Box>
