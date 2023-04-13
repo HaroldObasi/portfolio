@@ -5,15 +5,16 @@ import { Theme } from "@mui/material/styles";
 
 interface ChipProps {
   name: string;
+  alt?: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
   chip: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: "#1C2C50",
   },
 }));
 
-const CustomChip = ({ name }: ChipProps) => {
+const CustomChip = ({ name, alt }: ChipProps) => {
   const classes = useStyles();
   return (
     <Chip
@@ -25,11 +26,15 @@ const CustomChip = ({ name }: ChipProps) => {
           fontWeight: 200,
           fontSize: 10,
         },
+        "& .MuiChip-filled": {
+          backgroundColor: "white",
+        },
       }}
       className={classes.chip}
       size="small"
       label={name}
       variant="filled"
+      // color={alt ? "lightBlue" : "default"}
     />
   );
 };
