@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 const ButtonStack = () => {
   const handleOpenPDF = (): void => {
     window.open(
-      "https://harold-portfolio-api-bucket.s3.eu-central-1.amazonaws.com/Harold_O_Resume_v1_.pdf",
+      "https://harold-portfolio-api-bucket.s3.eu-central-1.amazonaws.com/Harold_O_Resume_v2_.pdf",
       "_blank"
     );
   };
