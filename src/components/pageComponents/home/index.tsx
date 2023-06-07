@@ -11,7 +11,13 @@ import InfoCard from "./InfoCard";
 
 const MainHome = () => {
   return (
-    <Box marginBottom={20}>
+    <Box
+      marginBottom={20}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      paddingTop={15}
+    >
       <Stack
         direction="column"
         justifyContent="center"

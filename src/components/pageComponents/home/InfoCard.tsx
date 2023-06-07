@@ -6,16 +6,6 @@ import PersonIcon from "@mui/icons-material/Person";
 const InfoCard = () => {
   return (
     <>
-      <Avatar
-        sizes="lg"
-        sx={{
-          width: "120px",
-          height: "120px",
-          backgroundColor: (theme) => theme.palette.grey[800],
-        }}
-      >
-        <PersonIcon fontSize="large" />
-      </Avatar>
       <Typography
         color="text.primary"
         fontWeight="600"
@@ -33,7 +23,7 @@ const InfoCard = () => {
           fontSize: "20px",
         }}
       >
-        AWS Certified, JS/TS, Python, Java
+        AWS, JS/TS, Python
       </Typography>
     </>
   );

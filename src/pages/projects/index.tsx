@@ -19,7 +19,7 @@ export async function getServerSideProps() {
   const projects = await client.fetch(`*[_type == "project"]{
     _id, name, shortDescription, techStack
   }`);
-  console.log(projects);
+
   return {
     props: { projects }, // will be passed to the page component as props
   };
