@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { GetServerSidePropsContext } from "next";
 import { ProjectItem } from "@/components/pageComponents/projects/types";
 import ImagesArray from "@/components/pageComponents/projects/projectInfo/ImagesArray";
+// import ProjectContent from "@/components/pageComponents/projects/projectInfo/ProjectContent";
 import InfoCard from "@/components/pageComponents/projects/projectInfo/InfoCard";
 import Head from "next/head";
 
@@ -21,6 +22,7 @@ const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
         techStack={projectInfo.techStack}
       />
       {projectInfo.images && <ImagesArray images={projectInfo.images} />}
+      {/* {projectInfo.content && <ProjectContent content={projectInfo.content} />} */}
     </>
   );
 };

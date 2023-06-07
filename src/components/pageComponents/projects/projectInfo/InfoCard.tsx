@@ -34,7 +34,7 @@ const InfoCard = ({ name, shortDescription, techStack }: InfoCardProps) => {
       </Typography>
       <Stack direction="row" justifyContent="center">
         {techStack.map((item: string) => {
-          return <CustomChip name={item} />;
+          return <CustomChip key={item} name={item} />;
         })}
       </Stack>
     </Box>
