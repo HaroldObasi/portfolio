@@ -1,7 +1,7 @@
 import React from "react";
 import { client } from "@/sanity-config";
 import { useRouter } from "next/router";
-import { GetServerSidePropsContext } from "next";
+import { GetServerSidePropsContext, GetStaticProps } from "next";
 import { ProjectItem } from "@/components/pageComponents/projects/types";
 import ImagesArray from "@/components/pageComponents/projects/projectInfo/ImagesArray";
 // import ProjectContent from "@/components/pageComponents/projects/projectInfo/ProjectContent";
@@ -10,7 +10,6 @@ import Head from "next/head";
 
 const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
   const router = useRouter();
-  const { slug } = router.query;
   return (
     <>
       <Head>
@@ -27,15 +26,56 @@ const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
   );
 };
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { slug } = context.query;
-  const projectInfo = await client.fetch(
-    `*[_type == "project" && slug.current == "${slug}"]`
-  );
-  console.log("project info server: ", projectInfo);
+export const getStaticPaths = async () => {
+  const query = `*[_type == "project"] {
+    _id, 
+    slug {
+      current
+    }
+  }`;
+
+  const projects = await client.fetch(query);
+
+  const paths = projects.map((project: ProjectItem) => ({
+    params: {
+      slug: project.slug.current,
+    },
+  }));
+
   return {
-    props: { projectInfo: projectInfo[0] },
+    paths,
+    fallback: "blocking",
   };
-}
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  // const { slug } = context.query;
+
+  console.log("params: ", params?.slug);
+
+  const query = `*[_type == "project" && slug.current == $slug][0]{
+    _id, 
+    name, 
+    slug, 
+    images,
+    body, 
+    techStack,
+    shortDescription
+  }`;
+
+  const projectInfo = await client.fetch(query, {
+    slug: params?.slug,
+  });
+
+  if (!projectInfo) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { projectInfo: projectInfo },
+  };
+};
 
 export default Project;
