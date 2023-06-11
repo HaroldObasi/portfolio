@@ -24,6 +24,12 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
         <Box
           px={2}
           py={3}
+          mb={1}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          borderRadius={2}
+          height={200}
           sx={{
             backgroundColor: (theme) => theme.palette.primary.dark,
             border: 0.5,
