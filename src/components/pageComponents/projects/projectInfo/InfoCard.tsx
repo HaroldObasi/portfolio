@@ -17,7 +17,7 @@ const InfoCard = ({ name, shortDescription, techStack }: InfoCardProps) => {
         align="center"
         paddingTop={2}
         sx={{
-          fontSize: "50px",
+          fontSize: { xs: "30px", md: "50px" },
         }}
       >
         {name}
@@ -27,16 +27,17 @@ const InfoCard = ({ name, shortDescription, techStack }: InfoCardProps) => {
         fontWeight="600"
         align="center"
         sx={{
-          fontSize: "20px",
+          fontSize: { xs: "15px", md: "20px" },
         }}
       >
         {shortDescription}
       </Typography>
-      <Stack direction="row" justifyContent="center">
+
+      <Box textAlign={"center"}>
         {techStack.map((item: string) => {
           return <CustomChip key={item} name={item} />;
         })}
-      </Stack>
+      </Box>
     </Box>
   );
 };
