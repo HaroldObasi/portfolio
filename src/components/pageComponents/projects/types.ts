@@ -8,7 +8,7 @@ export interface ProjectItem {
   thumbnail: any;
   techStack: string[];
   images: any[];
-  content: any[];
+  body: any[];
 }
 
 export interface Projects {
