@@ -18,7 +18,7 @@ const ProjectCard = ({ projectItem }: { projectItem: ProjectItem }) => {
   const theme = useTheme();
   const classes = useStyles();
   return (
-    <CardActionArea href={`projects/${projectItem.name}`}>
+    <CardActionArea href={`projects/${projectItem.slug.current}`}>
       <Box
         px={2}
         py={3}

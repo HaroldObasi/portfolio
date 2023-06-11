@@ -10,7 +10,7 @@ import Head from "next/head";
 
 const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
   const router = useRouter();
-  const { id } = router.query;
+  const { slug } = router.query;
   return (
     <>
       <Head>
@@ -28,10 +28,11 @@ const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { id } = context.query;
+  const { slug } = context.query;
   const projectInfo = await client.fetch(
-    `*[_type == "project" && name == "${id}"]`
+    `*[_type == "project" && slug.current == "${slug}"]`
   );
+  console.log("project info server: ", projectInfo);
   return {
     props: { projectInfo: projectInfo[0] },
   };

@@ -17,7 +17,7 @@ const index = ({ projects }: Projects) => {
 
 export async function getServerSideProps() {
   const projects = await client.fetch(`*[_type == "project"]{
-    _id, name, shortDescription, techStack
+    _id, name, shortDescription, techStack, slug
   }`);
 
   return {
