@@ -1,10 +1,10 @@
 import React from "react";
 import { client } from "@/sanity-config";
 import { useRouter } from "next/router";
-import { GetServerSidePropsContext, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { ProjectItem } from "@/components/pageComponents/projects/types";
 import ImagesArray from "@/components/pageComponents/projects/projectInfo/ImagesArray";
-// import ProjectContent from "@/components/pageComponents/projects/projectInfo/ProjectContent";
+import ProjectContent from "@/components/pageComponents/projects/projectInfo/ProjectContent";
 import InfoCard from "@/components/pageComponents/projects/projectInfo/InfoCard";
 import Head from "next/head";
 
@@ -21,7 +21,7 @@ const Project = ({ projectInfo }: { projectInfo: ProjectItem }) => {
         techStack={projectInfo.techStack}
       />
       {projectInfo.images && <ImagesArray images={projectInfo.images} />}
-      {/* {projectInfo.content && <ProjectContent content={projectInfo.content} />} */}
+      {projectInfo.body && <ProjectContent content={projectInfo.body} />}
     </>
   );
 };
@@ -49,10 +49,6 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // const { slug } = context.query;
-
-  console.log("params: ", params?.slug);
-
   const query = `*[_type == "project" && slug.current == $slug][0]{
     _id, 
     name, 
